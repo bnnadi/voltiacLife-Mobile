@@ -1,7 +1,7 @@
 /**
  * @author Bisike N. Nnadi
  */
-'use strict';
+"use strict";
 
 voltaicLife.controller('login', ['$scope', 'angularFireAuth', function ($scope, angularFireAuth) {
     
