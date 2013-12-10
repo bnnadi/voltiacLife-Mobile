@@ -1,9 +1,9 @@
 var voltaicLife = angular.module('voltaicLife', ['firebase']);
 var URL = "https://voltaiclife.firebaseio.com/";
 
-voltaicLife.run(['angularFireAuth', '$scope', function (angularFireAuth, $scope) {
+voltaicLife.run(['$firebaseAuth', '$scope', function ($firebaseAuth, $scope) {
     var ref = new Firebase(URL);
-    angularFireAuth.initialize(ref, {scope: $scope, name: "user"});
+    $scope.auth = $firebaseAuth(ref, {scope: $scope, name: "user"});
 }]);    
 
 voltaicLife.config(function($routes){

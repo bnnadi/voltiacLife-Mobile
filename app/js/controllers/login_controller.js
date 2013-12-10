@@ -3,28 +3,29 @@
  */
 "use strict";
 
-voltaicLife.controller('login', ['$scope', 'angularFireAuth', function ($scope, angularFireAuth) {
+voltaicLife.controller('login', ['$scope', '$firebaseAuth', function ($scope, $firebaseAuth) {
     
-    $scope.$on("angularFireAuth:login", function (evt, user) {
+    $scope.$on("$firebaseAuth:login", function (evt, user) {
         console.log("User " + user.id + " successfully logged in!!!");
     });
     
-    $scope.$on("angularFireAuth:logout", function(evt) {
-        // User logged out.
+    $scope.$on("$firebaseAuth:logout", function (evt) {
+          console.log("User " + user.id + " successfully logged out, sadness");
     });
     
-    $scope.$on("angularFireAuth:error", function(evt, err) {
-        // There was an error during authentication.
+    $scope.$on("$firebaseAuth:error", function (evt, err) {
+        console.log("Major error to report");
     });
 
-    $scope.login = function () {
-        angularFireAuth.login("facebook");
-    };
+//    $scope.$login = function () {
+//        $firebaseAuth.$login("facebook");
+//        console.log("Logging into facebook");
+//    };
+//
+//    $scope.$logout = function () {
+//        $firebaseAuth.$logout();
+//    };
 
-    $scope.logout = function () {
-        angularFireAuth.logout();
-    };
 
-
-}])
+}]);
 
