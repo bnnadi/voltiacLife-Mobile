@@ -17,15 +17,13 @@ voltaicLife.controller('login', ['$scope', '$firebaseAuth', function ($scope, $f
         console.log("Major error to report");
     });
 
-//    $scope.$login = function () {
-//        $firebaseAuth.$login("facebook");
-//        console.log("Logging into facebook");
-//    };
-//
-//    $scope.$logout = function () {
-//        $firebaseAuth.$logout();
-//    };
+    $scope.$login = function () {
+        $firebaseAuth.$login("facebook");
+        console.log("Logging into facebook");
+    };
 
+    $scope.$logout = function () {
+        $firebaseAuth.$logout();
+    };
 
 }]);
-
