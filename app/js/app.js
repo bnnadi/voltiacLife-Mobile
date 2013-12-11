@@ -1,25 +1,23 @@
-var voltaicLife = angular.module('voltaicLife', ['firebase']);
-var URL = "https://voltaiclife.firebaseio.com/";
+var voltaicLifeApp = angular.module('voltaicLife', ['firebase', 'ngRoute']);
+var URL = "https://voltaiclife.firebaseio.com/users";
 
-voltaicLife.run(['$firebaseAuth', '$scope', function ($firebaseAuth, $scope) {
+voltaicLifeApp.run(['$firebaseAuth', '$rootScope', function ($firebaseAuth, $rootScope) {
     var ref = new Firebase(URL);
-    $scope.auth = $firebaseAuth(ref, {scope: $scope, name: "user"});
+    $rootScope.auth = $firebaseAuth(ref);
 }]);    
 
-voltaicLife.config(function($routes){
-    $routes
-    `.when("/", {
-        controller: "login",
-        title: "Home"
-    })
-    .when("/", {
-        controller: "search",
-        title: "Search"
-    })
-    .otherwise({
-        redirectTo:"/",
-        title: "Home"
-    });
-
-
+voltaicLifeApp.config(function($routeProvider){
+    $routeProvider
+        .when("/", {
+            controller: "login",
+            title: "Home"
+        })
+        .when("/", {
+            controller: "search",
+            title: "Search",
+        })
+        .otherwise({
+            redirectTo:"/",
+            title: "Home"
+        });
 });

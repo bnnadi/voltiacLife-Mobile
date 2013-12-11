@@ -3,25 +3,26 @@
  */
 'use strict';
 
-var APIv = 2.0;
-var APPID = "voltaicLife";
-var API_Format = 'json';
-var API_URL = 'http://api.bandsintown.com/artists/' + $scope.artist + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID;
-
-console.log(API_URL);
-
-voltaicLife.controller('search', ['$scope', '$http', function($scope, $http){
+voltaicLifeApp.controller('search', ['$scope', '$http', function($scope, $http){
+    var APIv = '2.0';
+    var APPID = "voltaicLife";
+    var API_Format = 'json';
+    
     $scope.artist = '';
     
     $scope.findArtist = function(){
-        $scope.foundIt = "The artist you're searching for is " + $scope.artist
-    }
-    
-    $scope.data = "unknown";
-    $http.get(API_URL)
+        var API_URL = 'http://api.bandsintown.com/artists/' + $scope.artist + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID;
+        $scope.foundIt = "The artist you're searching for is " + $scope.artist;
+        
+        console.log(API_URL);
+        
+            $scope.data = "unknown";
+    $http.jsonp(API_URL)
         .success(function (data){
-            $scope.data = data;
-            console.log($scope.data);
+            $scope.data = data; 
+            console.log('recieved data');
         });
 
+    }
+    
 }]);
