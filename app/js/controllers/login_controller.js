@@ -3,16 +3,17 @@
  */
 "use strict";
 
-voltaicLifeApp.controller('login', ['$scope', '$firebaseAuth', function($scope, $firebaseAuth){
+voltaicLifeApp.controller('login', ['$scope', '$firebaseAuth', '$location', function($scope, $firebaseAuth, $location){
 
     $scope.$login = function(){
-        $firebaseAuth.$login('facebook',{scope: 'user_likes, friends_likes, user_interests, friends_interests'
-        });
+        $firebaseAuth.$login('facebook',{scope: 'user_likes, friends_likes, user_interests, friends_interests'});
         console.log("Logging into facebook");
+        $location.path('/partials/userList.html');
     };
 
     $scope.$logout = function(){
         $firebaseAuth.$logout();
+        $location.path('/');
     };
 
 }]);

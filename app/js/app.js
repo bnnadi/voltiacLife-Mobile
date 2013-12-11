@@ -1,6 +1,6 @@
 var voltaicLifeApp = angular.module('voltaicLife', ['firebase', 'ngRoute']);
 
-voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', function ($firebaseAuth, $rootScope, $firebase) {
+voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', function ($firebaseAuth, $rootScope, $firebase, $location) {
     var URL = "https://voltaiclife.firebaseio.com/";
     var ref = new Firebase(URL);
     $rootScope.auth = $firebaseAuth(ref);
@@ -14,20 +14,22 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', function ($fireb
             console.log("user data loaded");
             console.log("userData ", userData);
             
-//            console.log("user likes", userLikes);
             console.log("user ", user);
             if(!userData){
+                
                 var newUser = {
                     name: user.name,
                     gender: user.gender,
                     username: user.username,
                     location: user.location.name,
-                    image:  "http://graph.facebook.com/" + user.username + "/picture"
-                }
+                    imageSmall: "http://graph.facebook.com/" + user.username + "/picture?type=small",
+                    imageLarge: "http://graph.facebook.com/" + user.username + "/picture?type=large"}
                 
                 $rootScope.user.$set(newUser);
             }
         });
+        
+        $location.path('/userList');
         
     });
     
@@ -38,6 +40,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', function ($fireb
     
     $rootScope.$on("$firebaseAuth:error", function(evt, err){
         console.log("Major error to report");
+        console.log('Error'+ err)
     });
     
 }]);    
@@ -46,14 +49,17 @@ voltaicLifeApp.config(function($routeProvider){
     $routeProvider
         .when("/", {
             controller: "login",
-            title: "Home"
+            templateUrl: '/partials/home.html',
         })
-        .when("/", {
+        .when("/userList", {
+            controller: "user",
+            templateUrl: '/partials/userList.html',
+        })
+        .when("/userList", {
             controller: "search",
-            title: "Search",
+            templateUrl: '/partials/artistSearched.html',
         })
         .otherwise({
-            redirectTo:"/",
-            title: "Home"
+            redirectTo:"/"
         });
 });
