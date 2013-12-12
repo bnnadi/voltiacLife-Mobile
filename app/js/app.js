@@ -71,6 +71,10 @@ voltaicLifeApp.config(function($routeProvider){
             controller: "search",
             templateUrl: '/partials/artistSearched.html',
         })
+        .when("/show", {
+            controller: "showView",
+            templateUrl: '/partials/show.html',
+        })
         .otherwise({
             redirectTo:"/"
         });

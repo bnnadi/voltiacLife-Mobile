@@ -24,6 +24,8 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', fun
                 $log.warn(data, status, headers(), config);
                 console.log('hello');
             });
+        
+        $scope.artist = " ";
         // Changing location to the partial for artisted searched
             $location.path('/artistSearched');
     }

@@ -1,9 +1,9 @@
-<div >
+<div>
     <h3>Here are the concerts for  {{foundIt}}</h3>
     
     <ul>
-        <li ng-repeat='show in shows'>
-            <a href="" ng-click >{{show.title}} : {{show.formatted_location}}</a>
+        <li ng-repeat='show in shows' ng-controller='showView'>
+            <a href="" ng-click='pickedShow()' >{{show.title}} : {{show.formatted_location}}</a>
         </li>
     </ul>
 </div>
