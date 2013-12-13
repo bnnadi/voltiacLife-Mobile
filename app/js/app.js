@@ -5,6 +5,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
     var ref = new Firebase(URL);
     $rootScope.auth = $firebaseAuth(ref);
     
+    // event for when the user logs into facebook
     $rootScope.$on("$firebaseAuth:login", function(evt, user){
         console.log("User " + user.id + " successfully logged in!!!");
         
@@ -14,7 +15,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
             console.log("user data loaded");
             console.log("user likes http://graph.facebook.com/" + user.id + "/music?fields=name&limit=50");
             
-            console.log("user ", user);
+            console.log("user ", user.accessToken);
             if(!userData){
                 
                 var newUser = {
@@ -22,22 +23,26 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
                     gender: user.gender,
                     username: user.username,
                     location: user.location.name,
+                    access: user.accessToken,
                     imageSmall: "http://graph.facebook.com/" + user.username + "/picture?type=small",
                     imageLarge: "http://graph.facebook.com/" + user.username + "/picture?type=large"}
                 
                 $rootScope.user.$set(newUser);
+            
             }
         });
         
-        $http.jsonp("http://graph.facebook.com/" + user.id + "/music?fields=name&limit=50&callback=JSON_CALLBACK")
-            .success(function(data, status, headers, config){
-                $rootScope.likes = data; 
-                $log.info(data, status, headers(), config);
-                console.log('hello',$rootScope.likes);
-            })
-            .error(function(data, status, headers, config){
-                $log.warn(data, status, headers(), config);
-                console.log('hello');
+            // making a call to the graph for facebook to show the list of artists that the user likes.
+            console.log(user.accessToken);
+            $http.jsonp("https://graph.facebook.com/" + user.id + "/music?&fields=name&limit=50&callback=JSON_CALLBACK&access_token=" + user.accessToken)
+                .success(function(data, status, headers, config){
+                    $rootScope.likes = data.data; 
+                    $log.info(data, status, headers(), config);
+                    console.log('hello likes! ',$rootScope.likes);
+                })
+                .error(function(data, status, headers, config){
+                    $log.warn(data, status, headers(), config);
+                    console.log('hello');
             });
         
         
@@ -63,8 +68,12 @@ voltaicLifeApp.config(function($routeProvider){
             controller: "login",
             templateUrl: '/partials/home.html',
         })
-        .when("/userList", {
+        .when("/userProfile", {
             controller: "user",
+            templateUrl: '/partials/userProfile.html',
+        })
+        .when("/userList", {
+            controller: "search",
             templateUrl: '/partials/userList.html',
         })
         .when("/artistSearched", {

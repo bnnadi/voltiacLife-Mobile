@@ -2,8 +2,8 @@
     <h3>Your favorite artists shows</h3>
 
     <ul>
-        <li ng-repeat>
-            <a href="" >{{artist.name - artist.city}}</a>
+        <li ng-repeat='like in likes'>
+            <a href="" ng-click="likeArtist()">{{like.name}}</a>
         </li>
     </ul>
 

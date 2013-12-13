@@ -8,7 +8,7 @@ voltaicLifeApp.controller('login', ['$scope', '$firebaseAuth', '$location', func
     $scope.$login = function(){
         $firebaseAuth.$login('facebook',{scope: 'user_likes, friends_likes, user_interests, friends_interests'});
         console.log("Logging into facebook");
-        $location.path('/partials/userList.html');
+        $location.path('/userList');
     };
 
     $scope.$logout = function(){
