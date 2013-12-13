@@ -34,7 +34,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
         
             // making a call to the graph for facebook to show the list of artists that the user likes.
             console.log(user.accessToken);
-            $http.jsonp("https://graph.facebook.com/" + user.id + "/music?&fields=name&limit=50&callback=JSON_CALLBACK&access_token=" + user.accessToken)
+            $http.jsonp("https://graph.facebook.com/" + user.id + "/music?fields=name&limit=50&callback=JSON_CALLBACK&access_token=" + user.accessToken)
                 .success(function(data, status, headers, config){
                     $rootScope.likes = data.data; 
                     $log.info(data, status, headers(), config);
@@ -80,7 +80,11 @@ voltaicLifeApp.config(function($routeProvider){
             controller: "search",
             templateUrl: '/partials/artistSearched.html',
         })
-        .when("/show", {
+        .when("/artistSearched/:key", {
+            controller: "search",
+            templateUrl: '/partials/artistSearched.html',
+        })
+        .when("/show/:key", {
             controller: "showView",
             templateUrl: '/partials/show.html',
         })

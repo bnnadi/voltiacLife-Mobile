@@ -30,10 +30,11 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', '$r
         $location.path('/artistSearched');
     }
     
-        $scope.likeArtist = function(){
-        var API_URL = 'http://api.bandsintown.com/artists/' + $rootScope.like + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID+ "&callback=JSON_CALLBACK";
+        $scope.likeArtist = function(like){
+            console.log(like)
+        var API_URL = 'http://api.bandsintown.com/artists/' + like + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID+ "&callback=JSON_CALLBACK";
             
-        $scope.foundIt = $rootScope.like;
+        $scope.foundIt = like;
             
         // using $http to  bring in the json data on the artist searched and saving it to $scope.data  
         $http.jsonp(API_URL)
@@ -47,10 +48,8 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', '$r
                 console.log('hello');
             });
         
-        $scope.artist = " ";
-        
         // Changing location to the partial for artisted searched
-        $location.path('/artistSearched');
+        //$location.path('/artistSearched');
     }
 
 }]);

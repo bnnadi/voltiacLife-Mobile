@@ -3,6 +3,6 @@ voltaicLifeApp.controller('user', ['$scope', '$location', function($scope, $loca
     $scope.userInfo = function() {
     
     
-        $location.path('/userProfile');
+        //$location.path('/userProfile');
     };
 }]);
