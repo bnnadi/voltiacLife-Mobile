@@ -2,8 +2,8 @@
     <h3>Here are the concerts for  {{foundIt | uppercase }}</h3>
     
     <ul>
-        <li ng-repeat='(key,show) in shows' ng-controller='showView'>
-            <a href="#/show/{{key}}">{{show.title}} - {{show.formatted_location}}</a>
+        <li ng-repeat='(key,show) in shows'>
+            <a ng-href="#/show/{{key}}">{{show.title}} - {{show.formatted_location}} - {{show.formatted_datetime}}</a>
         </li>
     </ul>
 </div>

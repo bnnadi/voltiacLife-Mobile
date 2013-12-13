@@ -38,7 +38,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
                 .success(function(data, status, headers, config){
                     $rootScope.likes = data.data; 
                     $log.info(data, status, headers(), config);
-                    console.log('hello likes! ',$rootScope.likes);
+                    //console.log('hello likes! ',$rootScope.likes);
                 })
                 .error(function(data, status, headers, config){
                     $log.warn(data, status, headers(), config);
@@ -53,6 +53,8 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
     
     $rootScope.$on("$firebaseAuth:logout", function(evt){
           console.log("User successfully logged out, sadness");
+        
+        
     });
     
     $rootScope.$on("$firebaseAuth:error", function(evt, err){
@@ -66,15 +68,14 @@ voltaicLifeApp.config(function($routeProvider){
     $routeProvider
         .when("/", {
             controller: "login",
-            templateUrl: '/partials/home.html',
+            templateUrl: '/partials/home.html'
         })
         .when("/userProfile", {
             controller: "user",
-            templateUrl: '/partials/userProfile.html',
+            templateUrl: '/partials/userProfile.html'
         })
         .when("/userList", {
-            controller: "search",
-            templateUrl: '/partials/userList.html',
+            templateUrl: '/partials/userList.html'
         })
         .when("/artistSearched", {
             controller: "search",
@@ -82,11 +83,11 @@ voltaicLifeApp.config(function($routeProvider){
         })
         .when("/artistSearched/:key", {
             controller: "search",
-            templateUrl: '/partials/artistSearched.html',
+            templateUrl: '/partials/artistSearched.html'
         })
         .when("/show/:key", {
             controller: "showView",
-            templateUrl: '/partials/show.html',
+            templateUrl: '/partials/show.html'
         })
         .otherwise({
             redirectTo:"/"

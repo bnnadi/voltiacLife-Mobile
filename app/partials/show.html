@@ -13,4 +13,10 @@
 
 <div>
     <h4>Your friends who may be interested in this concert...</h4>
+    
+    <ul>
+        <li ng-repeat='friend in friends'>
+            <input type="checkbox" value="{{friend.name}}" /><label >{{friend.name}}</label>
+        </li>
+    </ul>
 </div>

@@ -54,7 +54,7 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav" ng-controller= "login">
                 <span ng-show="auth.user"><img ng-src='{{user.imageSmall}}' height="30" width="30" /><a href="#/userProfile">{{auth.user.name}} </a>| <a ng-click="auth.$logout()">Logout</a></span>
-                <span ng-hide="auth.user"><a href="#" ng-click="auth.$login('facebook')">Login</a></span>
+                <span ng-hide="auth.user"><a href="#" ng-click="myFBLogin()">Login</a></span>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -64,7 +64,7 @@
       <div class="container" ng-controller= "search">
           <h4>Search to find where your favorite artist is playing</h4>
           <input type="text" placeholder="Search by artist..." ng-model="artist" />
-          <button type="submit" ng-click="findArtist()">Search</button>
+          <button ng-href='' type="submit" ng-click="findArtist()">Search</button>
          
           <hr>
           
