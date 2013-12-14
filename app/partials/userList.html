@@ -3,7 +3,7 @@
 
     <ul>
         <li ng-repeat='(key,like) in likes'>
-            <a ng-href="#/artistSearched/{{key}}" ng-click='likedArtist()'>{{like.name}}</a>
+            <a ng-href="#/artistSearched/" ng-click="findArtist(like.name)">{{like.name}}</a>
         </li>
     </ul>
  

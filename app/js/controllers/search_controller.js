@@ -8,6 +8,8 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', '$r
     var APPID = "voltaicLife";
     var API_Format = 'json';
     
+    // this function is for when hte user clicks on one of their liked artist 
+    // so they can find an event that the artist has
     $scope.likedArtist = function(){
         console.log($route.current.params.key) ;
 //        $scope.foundIt=$rootScope.likes[$routeParams.key];
@@ -30,9 +32,9 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', '$r
 
         }
     
-    $scope.findArtist = function(){
-        var API_URL = 'http://api.bandsintown.com/artists/' + $scope.artist + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID+ "&callback=JSON_CALLBACK";
-        $scope.foundIt = $scope.artist;
+    $scope.findArtist = function(artist){
+        var API_URL = 'http://api.bandsintown.com/artists/' + artist + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID+ "&callback=JSON_CALLBACK";
+        $scope.foundIt = artist;
 
         // using $http to  bring in the json data on the artist searched and saving it to $scope.data  
         $http.jsonp(API_URL)
