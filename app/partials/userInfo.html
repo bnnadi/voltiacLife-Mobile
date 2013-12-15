@@ -6,17 +6,32 @@
     </span>
     
     <div>
-        <h2>{{}} upcoming shows</h2>
+        <h2><a ng-click="showFriends=false">upcoming shows</a></h2>
     </div>
     
-    <h3>Shows you looked at</h3>
-        <li ng-repeat="views in showViewed">
-            <a>{{views}}</a>
+    <h3 ng-hide="showFriends">Shows you looked at</h3>
+        <li ng-repeat="show in user.shows">
+            <a>{{show}}</a>
         </li>
     
         
     <div>
-        <h1><a>Friends</a></h1>
+        <h2><a ng-click="showFriends=true">friends</a></h2>
+        
+        <div>
+    
+            <ul ng-show="showFriends">
+                <li ng-repeat='friend in friends' ng-show='friendsArtist'>
+                    <a ng-click='friendsArtist=false'>{{friend.name}}  {{friend.music[0].data.length}}</a>
+                       <ul ng-hide='friendsArtist'>
+                            <li ng-repeat='music in friendsMusic'>
+                                <a ng-href="#/artistSearched/" ng-click="findArtist(music.name)">{{music.name}}</a>
+                            </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
     </div>
 
 <!--

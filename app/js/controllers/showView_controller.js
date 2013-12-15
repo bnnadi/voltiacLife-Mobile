@@ -2,7 +2,8 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
     // the array will store all the shows that the user has viewed
     $rootScope.showViewed = [];
     
-   // console.log($scope.shows[$routeParams.key])
+//   if($scope.shows[$routeParams.key])
+//   {
     // function to init change the view and store
         $scope.showPicked= $scope.shows[$routeParams.key]
         // taking the picked show from the list and storing the infomation into the object showInfo
@@ -20,8 +21,15 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
             
         };
     
-        $rootScope.showViewed.push($scope.showInfo.showTitle);
+        if(!$rootScope.user.shows)
+        {
+            $rootScope.user.shows = [];
+        }
+        $rootScope.user.shows.push($scope.showInfo.showTitle);
+        $rootScope.user.$save('shows');
         console.log($rootScope.showViewed);
+//   }
+    
     
         // console.logging the object showInfo  to see if the information was stored
         if($scope.showInfo.ticketStatus === 'unavailable'){
@@ -31,6 +39,10 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
             $http.jsonp("https://graph.facebook.com/"+$rootScope.auth.user.id+"?fields=name,friends.fields(name,music)&callback=JSON_CALLBACK&access_token=" + $rootScope.user.access)
                     .success(function(data, status, headers, config){
                         $rootScope.friends = data.friends.data; 
+                        for(var i=0; $rootScope.friends.length; i++){
+                              $rootScope.friendsMusic = $rootScope.friends.music[i].data
+                        };
+
                         $log.info(data, status, headers(), config);
                         console.log('hello friends likes! ',$rootScope.friends);
                     })
