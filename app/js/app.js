@@ -46,7 +46,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
             });
         
         
-        $location.path('/userList');
+        $location.path('/userInfo');
         
     });
     
@@ -75,20 +75,13 @@ voltaicLifeApp.config(function($routeProvider){
             controller: "login",
             templateUrl: '/partials/home.html'
         })
-        .when("/userProfile", {
+        .when("/userInfo", {
             controller: "user",
-            templateUrl: '/partials/userProfile.html'
-        })
-        .when("/userList", {
-            templateUrl: '/partials/userList.html'
+            templateUrl: '/partials/userInfo.html'
         })
         .when("/artistSearched", {
             controller: "search",
             templateUrl: '/partials/artistSearched.html',
-        })
-        .when("/artistSearched/:key", {
-            controller: "search",
-            templateUrl: '/partials/artistSearched.html'
         })
         .when("/show/:key", {
             controller: "showView",

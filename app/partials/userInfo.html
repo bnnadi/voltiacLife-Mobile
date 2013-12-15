@@ -1,0 +1,25 @@
+<div>
+    <span>
+        <img ng-src='{{user.imageLarge}}' height="100" width="100" />
+        <h4>{{user.name}}</h4>
+        <p>{{likes.length}} likes</p>
+    </span>
+    
+    <div>
+        <h2>{{}} upcoming shows</h2>
+    </div>
+    
+    <h3>Shows you looked at</h3>
+        <li ng-repeat="views in showViewed">
+            <a>{{views}}</a>
+        </li>
+
+<!--
+    <ul>
+        <li ng-repeat='(key,like) in likes'>
+            <a ng-href="#/artistSearched/" ng-click="findArtist(like.name)">{{like.name}}</a>
+        </li>
+    </ul>
+-->
+ 
+</div>
