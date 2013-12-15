@@ -21,8 +21,8 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
         };
     
         $rootScope.showViewed.push($scope.showInfo.showTitle);
-    $rootScope.showViewed.$save
-        console.log($rootScope.showViewed)
+        console.log($rootScope.showViewed);
+    
         // console.logging the object showInfo  to see if the information was stored
         if($scope.showInfo.ticketStatus === 'unavailable'){
             console.log('Show is not available so no need to notify firends');
@@ -32,7 +32,7 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
                     .success(function(data, status, headers, config){
                         $rootScope.friends = data.friends.data; 
                         $log.info(data, status, headers(), config);
-                       // console.log('hello friends likes! ',$rootScope.friends);
+                        console.log('hello friends likes! ',$rootScope.friends);
                     })
                     .error(function(data, status, headers, config){
                         $log.warn(data, status, headers(), config);

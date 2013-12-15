@@ -2,7 +2,7 @@
     <span>
         <img ng-src='{{user.imageLarge}}' height="100" width="100" />
         <h4>{{user.name}}</h4>
-        <p>{{likes.length}} likes</p>
+        <p><a>liked artists {{likes.length}}</a></p>
     </span>
     
     <div>
@@ -13,6 +13,11 @@
         <li ng-repeat="views in showViewed">
             <a>{{views}}</a>
         </li>
+    
+        
+    <div>
+        <h1><a>Friends</a></h1>
+    </div>
 
 <!--
     <ul>
