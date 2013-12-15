@@ -52,10 +52,12 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
     
     
     $rootScope.$on("$firebaseAuth:logout", function(evt){
-          console.log("User successfully logged out, sadness");
+         // console.log("User successfully logged out, saddness");
         
         //make sure to remove the acessToken from firebase when I log in
                 /*  INSERT HERE ACCESSTOKEN REMOVAL */
+        console.log($rootScope.user.access);
+        $rootScope.user.$remove($rootScope.user.access);
         
         
     });
