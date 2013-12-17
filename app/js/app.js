@@ -108,6 +108,9 @@ voltaicLifeApp.config(function($routeProvider){
             controller: "showView",
             templateUrl: '/partials/show.html'
         })
+        .when("/under_construction", {
+            templateUrl: '/partials/under_construction.html'
+        })
         .otherwise({
             redirectTo:"/"
         });
