@@ -1,14 +1,14 @@
 <div>
-    <img ng-src='{{showInfo.image}}' />
+    <img class="img-responsive img-rounded" ng-src='{{showInfo.image}}' />
     <h2>{{ showInfo.showTitle }}</h2>
     
-    <p>{{ showInfo.location }}</p>
-    <p>{{ showInfo.date }}</p>
-    <p>{{ showInfo.ticketStatus }}</p>
-    <p>{{ showInfo.ticketUrl }}</p>
-    <p>{{ showInfo.ticketType }}</p>
-    <p>{{ showInfo.venue }}</p>
-    <p>{{ showInfo.onSale }}</p>
+    <p><span class="clrChng">Location: </span>{{ showInfo.location }}</p>
+    <p><span class="clrChng">Date: </span>{{ showInfo.date }}</p>
+    <p><span class="clrChng">Status: </span>{{ showInfo.ticketStatus }}</p>
+    <p><span class="clrChng">Buy a ticket: </span>{{ showInfo.ticketUrl }}</p>
+    <p><span class="clrChng">Ticket type: </span>{{ showInfo.ticketType }}</p>
+    <p><span class="clrChng">Venue: </span>{{ showInfo.venue }}</p>
+    <p><span class="clrChng">On sale Date: </span>{{ showInfo.onSale }}</p>
 
 </div>
 
@@ -16,7 +16,7 @@
     <h4>Your friends who may be interested in this concert...</h4>
     
     <ul>
-        <li ng-repeat='friend in friends'>
+        <li ng-repeat='friend in friendsMusic' class="friendsList">
             <input type="checkbox" value="{{friend.name}}" /><label >{{friend.name}}</label>
         </li>
     </ul>

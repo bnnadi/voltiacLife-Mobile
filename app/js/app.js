@@ -30,6 +30,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
                 $rootScope.user.$set(newUser);
             
             }
+
         });
         
             // making a call to the graph for facebook to show the list of artists that the user likes.
@@ -48,6 +49,26 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
         
         $location.path('/userInfo');
         
+                                      // going through facebook finding all of the users friends and displaying them for the user can have option to send a notfcation on show
+//console.log("https://graph.facebook.com/"+$rootScope.auth.user.id+"?fields=name,friends.fields(name,music)&callback=JSON_CALLBACK&access_token=" + user.accessToken);
+                   $http.jsonp("https://graph.facebook.com/"+$rootScope.auth.user.id+"?fields=name,friends.fields(name,music)&callback=JSON_CALLBACK&access_token=" + user.accessToken)
+                    .success(function(data, status, headers, config){
+                        $rootScope.friends = data.friends.data; 
+                        $log.info(data, status, headers(), config);
+                        //console.log('hello friends likes! ',$rootScope.friends);
+                            if(!$rootScope.user.friendsMusic){
+                                $rootScope.user.friendsMusic;
+                                $rootScope.user.friendsMusic = $rootScope.friends;
+                                $rootScope.user.$save('friendsMusic');
+                            }
+                        console.log( $rootScope.user.friendsMusic);
+
+                            })
+                    .error(function(data, status, headers, config){
+                        $log.warn(data, status, headers(), config);
+                        console.log('no good friends');
+                    });
+            
     });
     
     
@@ -56,8 +77,8 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
         
         //make sure to remove the acessToken from firebase when I log in
                 /*  INSERT HERE ACCESSTOKEN REMOVAL */
-        console.log($rootScope.user.access);
-        $rootScope.user.$remove($rootScope.user.access);
+        console.log(user.access);
+       $rootScope.user.$remove($rootScope.user.access);
         
         
     });

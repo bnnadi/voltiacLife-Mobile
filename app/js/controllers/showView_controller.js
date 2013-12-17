@@ -30,28 +30,11 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
         console.log($rootScope.showViewed);
 //   }
     
-    
-        // console.logging the object showInfo  to see if the information was stored
+            // console.logging the object showInfo  to see if the information was stored
         if($scope.showInfo.ticketStatus === 'unavailable'){
             console.log('Show is not available so no need to notify firends');
         }else{
-                   // going through facebook finding all of the users friends and displaying them for the user can have option to send a notfcation on show
-            $http.jsonp("https://graph.facebook.com/"+$rootScope.auth.user.id+"?fields=name,friends.fields(name,music)&callback=JSON_CALLBACK&access_token=" + $rootScope.user.access)
-                    .success(function(data, status, headers, config){
-                        $rootScope.friends = data.friends.data; 
-                        for(var i=0; $rootScope.friends.length; i++){
-                              $rootScope.friendsMusic = $rootScope.friends.music[i].data
-                        };
-
-                        $log.info(data, status, headers(), config);
-                        console.log('hello friends likes! ',$rootScope.friends);
-                    })
-                    .error(function(data, status, headers, config){
-                        $log.warn(data, status, headers(), config);
-                        console.log('no good friends');
-                });
-            
+            console.log('users friends casn be shown');
         }
-
         
 }]);

@@ -1,0 +1,90 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    height: 100%;
+}
+
+ul li {
+    list-style: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 100px auto -60px;
+    padding: 0 0 60px;
+}
+
+#footer {
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.navbar-default {
+    background-color: #832fc8;
+}
+
+.brandLogo {
+    margin-top: -10px;
+    font-size: 28px;
+    color: ghostwhite !important;
+}
+
+.login {
+    margin-top: 18px;
+}
+
+.login ul span a {
+    font-size: 18px;
+    color: ghostwhite;
+}
+
+.background {
+    background: url('../img/homePic.jpg');
+}
+
+.mainView {
+    margin-top: 50px;
+}
+
+.bdg-color {
+    background-color: #832fc8;
+}
+
+.userText {
+    color: #2A5EC8;
+}
+
+.userText:hover {
+    color: #7518C2;
+}
+
+.userTitle, .upcoming {
+    color: #3F279D;
+}
+
+.userTitle:hover, .upcoming:hover {
+    color: #793787;
+}
+
+.clrChng {
+    color: #793787;
+    font-size: 22px;
+}
+
+.friendsList {
+    font-size: 18px;
+    color: #2A5EC8;
+}
+
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
+.login ul span a {
+    font-size: 16px;
+    float:none;
+}
+
+}
