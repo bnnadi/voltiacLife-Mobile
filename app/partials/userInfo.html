@@ -9,7 +9,7 @@
     </div>
     
     <div class="pull-right">
-        <h3><a class="upcoming" ng-click('/under_construction')>upcoming shows</a></h3>
+        <h3><a class="upcoming" ng-href="#/under_construction">upcoming shows</a></h3>
     </div>
         </div>
    <div class="clearfix center-block col-md-6 col-md-offset-3">
@@ -32,20 +32,12 @@
                             <li ng-repeat='music in Musics'>
                                 <a ng-href="#/artistSearched/" ng-click="findArtist(music.name)">{{music.name}}</a>
                             </li>
-                    </ul>
+                        </ul>
                 </li>
             </ul>
         </div>
         
     </div>
     </div>
-
-<!--
-    <ul>
-        <li ng-repeat='(key,like) in likes'>
-            <a ng-href="#/artistSearched/" ng-click="findArtist(like.name)">{{like.name}}</a>
-        </li>
-    </ul>
--->
  
 </div>

@@ -42,8 +42,12 @@ a:hover {
     color: ghostwhite;
 }
 
+.searchbar {
+    z-index:auto;
+}
+
 .background {
-    background: url('../img/homePic.jpg');
+    background-image: url('img/homePic.jpg');
 }
 
 .mainView {
