@@ -24,9 +24,10 @@
         
         <h2><a ng-click="showFriends=true" class="userTitle">friends</a></h2>
         
-        <div>
-            <ul ng-show="showFriends" class="list-group">
-                <li ng-repeat='friend in user.friendsMusic' class="list-group-item col-md-4">
+        <div ng-show="showFriends">
+            <input id="frndSrch" class="form-control" ng-model='searchFriends' />
+            <ul class="list-group">
+                <li ng-repeat='friend in user.friendsMusic | filter:searchFriends' class="list-group-item col-md-4">
                     <span class="badge bdg-color">{{friend.music.data.length}}</span>
                     <a class="userText" ng-click='friendsArtist=!friendsArtist'>{{friend.name}}</a>
                       <ul>
