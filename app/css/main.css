@@ -51,7 +51,7 @@ a:hover {
     z-index:auto;
 }
 
-.background {
+.mainView .background {
     background: url('../img/homePic.jpg') no-repeat;
 }
 
