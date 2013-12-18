@@ -44,18 +44,12 @@
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle hidden" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
            <header class="navbar-left">
             <h1><a class="navbar-brand visible-md visible-lg brandLogo" href="/">voltaicLife</a></h1>
             <a class="visible-xs visible-sm"><img ng-src="img/voltaicLife-logo_48x48x32.png" /></a>
     		</header>
           </div>
-          <div class="login collapse navbar-collapse navbar-right">
+          <div class="login navbar-right">
             <ul class="nav navbar-nav" ng-controller= "login">
                 <span ng-show="auth.user"><a href="#/userInfo">{{auth.user.name}}</a> | <a ng-click="auth.$logout()">Logout</a></span>
                 <span ng-hide="auth.user"><a href="#" ng-click="myFBLogin()">Login</a><img src='img/holiday_facebook.png'/></span>
@@ -75,11 +69,12 @@
           </form>
           <hr>
           
-        <div ng-view class="clearfix mainView">
+        <div ng-view class="mainView">
             
         </div>
           
       </div>
+    <div class="clearfix"></div>
         
     </div>
       <footer id="footer">

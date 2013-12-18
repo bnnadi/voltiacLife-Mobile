@@ -30,7 +30,7 @@ voltaicLifeApp.controller('showView', ['$scope', '$rootScope', '$routeParams', f
             // console.logging the object showInfo  to see if the information was stored
         if($scope.showInfo.ticketStatus === 'unavailable'){
             console.log('Show is not available so no need to notify firends');
-            
+                        $scope.buyTicket = true;
         }else{
             console.log('users friends can be shown');
         }

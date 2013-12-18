@@ -1,18 +1,27 @@
 <div>
-    <img class="img-responsive img-rounded" ng-src='{{showInfo.image}}' />
-    <h2>{{ showInfo.showTitle }}</h2>
-    
-    <p><span class="clrChng">Location: </span>{{ showInfo.location }}</p>
-    <p><span class="clrChng">Date: </span>{{ showInfo.date }}</p>
-    <p><span class="clrChng">Status: </span>{{ showInfo.ticketStatus }}</p>
-    <p><span class="clrChng">Buy a ticket: </span>{{ showInfo.ticketUrl }}</p>
-    <p><span class="clrChng">Ticket type: </span>{{ showInfo.ticketType }}</p>
-    <p><span class="clrChng">Venue: </span>{{ showInfo.venue }}</p>
-    <p><span class="clrChng">On sale Date: </span>{{ showInfo.onSale }}</p>
 
-</div>
+    <img class="img-responsive img-rounded pull-left" ng-src='{{showInfo.image}}' />
+    <div class="col-md-9">
+        <h2>{{ showInfo.showTitle }}</h2>
+        <span class="col-md-4">
+            <p><span class="clrChng">Location: </span>{{ showInfo.location }}</p>
+            <p><span class="clrChng">Venue: </span>{{ showInfo.venue }}</p>
+        </span>
+        <span class="col-md-5">
+            <p><span class="clrChng">Date: </span>{{ showInfo.date }}</p>  
+            <p><span class="clrChng">Status: </span>{{ showInfo.ticketStatus }}</p>
+        </span>
 
-<div>
-    <h4>How about we go to this show in a big group...</h4>
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ showInfo.ticketUrl }}" target="_blank">Share on Facebook</a>
+    </div>
+</div>    
+<div class="clearfix"></div>
+<div ng-hide='buyTicket'>
+        <a ng-href="{{showInfo.ticketUrl}}">Buy a ticket</a>
+        <p><span class="clrChng">Ticket type: </span>{{ showInfo.ticketType }}</p>
+        <p><span class="clrChng">On sale Date: </span>{{ showInfo.onSale }}</p>
+
+    <div>
+        <h4>How about we go to this show in a big group...</h4>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ showInfo.ticketUrl }}" target="_blank">Share on Facebook</a>
+    </div>
 </div>

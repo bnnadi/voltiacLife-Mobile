@@ -88,12 +88,3 @@ a:hover {
     font-size: 18px;
     color: #2A5EC8;
 }
-
-
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
-.login ul span a {
-    font-size: 16px;
-    float:none;
-}
-
-}

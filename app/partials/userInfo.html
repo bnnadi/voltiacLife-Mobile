@@ -13,19 +13,20 @@
         </div>
     </div>
     
-   <div class="clearfix center-block col-md-6 col-md-offset-3">
+   <div class="clearfix center-block col-md-12">
     <h2><a  ng-click="showFriends=false" class="userTitle">shows you looked at</a></h2>
-     <div ng-hide="showFriends">
+     <div ng-hide="showFriends" >
         <ul class="list-group">     
-            <li ng-repeat="show in user.shows" class="list-group-item"><a class="userText">{{show[1]}}</a></li>
+            <li ng-repeat="show in user.shows" class="list-group-item col-md-6"><a class="userText">{{show[1]}}</a></li>
         </ul>
     </div>
+       <div class="clearfix"></div>
         
         <h2><a ng-click="showFriends=true" class="userTitle">friends</a></h2>
         
         <div>
             <ul ng-show="showFriends" class="list-group">
-                <li ng-repeat='friend in user.friendsMusic' class="list-group-item col-lg-6">
+                <li ng-repeat='friend in user.friendsMusic' class="list-group-item col-md-4">
                     <span class="badge bdg-color">{{friend.music.data.length}}</span>
                     <a class="userText" ng-click='friendsArtist=!friendsArtist'>{{friend.name}}</a>
                       <ul>
