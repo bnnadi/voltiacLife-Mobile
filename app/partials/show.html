@@ -13,11 +13,6 @@
 </div>
 
 <div>
-    <h4>Your friends who may be interested in this concert...</h4>
-    
-    <ul>
-        <li ng-repeat='friend in friendsMusic' class="friendsList">
-            <input type="checkbox" value="{{friend.name}}" /><label >{{friend.name}}</label>
-        </li>
-    </ul>
+    <h4>How about we go to this show in a big group...</h4>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ showInfo.ticketUrl }}" target="_blank">Share on Facebook</a>
 </div>

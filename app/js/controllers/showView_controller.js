@@ -1,11 +1,10 @@
-voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '$rootScope', '$routeParams', function($scope, $location, $http, $log, $rootScope, $routeParams){
+voltaicLifeApp.controller('showView', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams){
     // the array will store all the shows that the user has viewed
     $rootScope.showViewed = [];
     
-//   if($scope.shows[$routeParams.key])
-//   {
     // function to init change the view and store
         $scope.showPicked= $scope.shows[$routeParams.key]
+        console.log($scope.shows[$routeParams.key])
         // taking the picked show from the list and storing the infomation into the object showInfo
         $scope.showInfo = {
             
@@ -28,8 +27,7 @@ voltaicLifeApp.controller('showView', ['$scope', '$location', '$http', '$log', '
         $rootScope.user.shows.push($scope.showInfo.showTitle);
         $rootScope.user.$save('shows');
         console.log($rootScope.showViewed);
-//   }
-    
+
             // console.logging the object showInfo  to see if the information was stored
         if($scope.showInfo.ticketStatus === 'unavailable'){
             console.log('Show is not available so no need to notify firends');

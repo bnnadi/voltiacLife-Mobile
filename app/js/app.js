@@ -49,8 +49,9 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
         
         $location.path('/userInfo');
         
-                                      // going through facebook finding all of the users friends and displaying them for the user can have option to send a notfcation on show
-//console.log("https://graph.facebook.com/"+$rootScope.auth.user.id+"?fields=name,friends.fields(name,music)&callback=JSON_CALLBACK&access_token=" + user.accessToken);
+        // going through facebook finding all of the users friends and displaying them for the 
+        // user can have option to send a notfcation on show
+
                    $http.jsonp("https://graph.facebook.com/"+$rootScope.auth.user.id+"?fields=name,friends.fields(name,music)&callback=JSON_CALLBACK&access_token=" + user.accessToken)
                     .success(function(data, status, headers, config){
                         $rootScope.friends = data.friends.data; 
