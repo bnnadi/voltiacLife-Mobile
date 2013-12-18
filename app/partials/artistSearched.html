@@ -1,8 +1,8 @@
 <div>
     <h3>Here are the concerts for  {{foundIt | uppercase }}</h3>
     
-    <ul>
-        <li ng-repeat='(key,show) in shows'>
+    <ul class="list-group">
+        <li ng-repeat='(key,show) in shows' class="list-group-item">
             <a ng-href="#/show/{{key}}">{{show.title}} - {{show.formatted_location}} - {{show.formatted_datetime}}</a>
         </li>
     </ul>

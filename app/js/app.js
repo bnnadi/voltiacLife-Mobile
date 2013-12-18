@@ -24,13 +24,16 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
                     username: user.username,
                     location: user.location.name,
                     access: user.accessToken,
-                    imageSmall: "http://graph.facebook.com/" + user.username + "/picture?type=small",
                     imageLarge: "http://graph.facebook.com/" + user.username + "/picture?type=large"}
                 
                 $rootScope.user.$set(newUser);
             
             }
-
+//            $scope.shows = [];
+//            for($root.user.likes.length){
+//                var array = $scope.artistSearch(artist);
+//                 $scope.shows.concat(array);
+//            }
         });
         
             // making a call to the graph for facebook to show the list of artists that the user likes.
@@ -78,8 +81,10 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
         
         //make sure to remove the acessToken from firebase when I log in
                 /*  INSERT HERE ACCESSTOKEN REMOVAL */
-        console.log(user.access);
-       $rootScope.user.$remove($rootScope.user.access);
+        console.log('log out!!!!!', $rootScope.user);
+       $rootScope.user.$remove('access');
+       $rootScope.user.$remove('friendsMusic');
+       $location.path('/');
         
         
     });

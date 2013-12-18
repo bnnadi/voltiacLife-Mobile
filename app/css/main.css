@@ -5,6 +5,7 @@ body {
 
 ul li {
     list-style: none;
+    margin-bottom: 20px;
 }
 
 ul li a {
@@ -51,7 +52,7 @@ a:hover {
 }
 
 .background {
-    background-image: url('img/homePic.jpg');
+    background: url('../img/homePic.jpg') no-repeat;
 }
 
 .mainView {
