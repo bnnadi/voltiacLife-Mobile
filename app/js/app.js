@@ -100,24 +100,24 @@ voltaicLifeApp.config(function($routeProvider){
     $routeProvider
         .when("/", {
             controller: "login",
-            templateUrl: '/partials/home.html'
+            templateUrl: './partials/home.html'
         })
         .when("/userInfo", {
             controller: "user",
-            templateUrl: '/partials/userInfo.html'
+            templateUrl: './partials/userInfo.html'
         })
         .when("/artistSearched", {
             controller: "search",
-            templateUrl: '/partials/artistSearched.html',
+            templateUrl: './partials/artistSearched.html',
         })
         .when("/show/:key", {
             controller: "showView",
-            templateUrl: '/partials/show.html'
+            templateUrl: './partials/show.html'
         })
         .when("/under_construction", {
-            templateUrl: '/partials/under_construction.html'
+            templateUrl: './partials/under_construction.html'
         })
         .otherwise({
-            redirectTo:"/"
+            redirectTo:"./"
         });
 });

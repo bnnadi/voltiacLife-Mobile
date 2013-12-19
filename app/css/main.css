@@ -150,3 +150,11 @@ a:hover {
 .progress-bar {
     width: 60%;
 }
+
+.under {
+    margin-top: 125px;
+}
+
+.progress-bar-success {
+    background-color: #832fc8 !important;
+}
