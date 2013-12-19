@@ -145,3 +145,8 @@ a:hover {
     background-color: rgba(141, 32, 143, 0.7);
     color: rgba(42, 94, 200, 0.7);
 }
+
+/*** Under Construction ***/
+.progress-bar {
+    width: 60%;
+}
