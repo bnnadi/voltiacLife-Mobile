@@ -14,25 +14,25 @@
     </div>
     
    <div class="clearfix center-block col-md-12">
-    <h2><a  ng-click="showFriends=false" class="userTitle">shows you looked at</a></h2>
+    <h2><a  ng-click="showFriends=false" class="userTitle btn-link">shows you looked at</a></h2>
      <div ng-hide="showFriends" >
         <ul class="list-group">     
-            <li ng-repeat="show in user.shows" class="list-group-item col-md-6"><a class="userText">{{show[1]}}</a></li>
+            <li ng-repeat="show in user.shows" class="list-group-item col-md-6"><a class="userText">{{show}}</a></li>
         </ul>
     </div>
        <div class="clearfix"></div>
         
-        <h2><a ng-click="showFriends=true" class="userTitle">friends</a></h2>
+        <h2><a ng-click="showFriends=true" class="userTitle btn-link">friends</a></h2>
         
         <div ng-show="showFriends">
             <input id="frndSrch" class="form-control" ng-model='searchFriends' />
             <ul class="list-group">
                 <li ng-repeat='friend in user.friendsMusic | filter:searchFriends' class="list-group-item col-md-4">
                     <span class="badge bdg-color">{{friend.music.data.length}}</span>
-                    <a class="userText" ng-click='friendsArtist=!friendsArtist'>{{friend.name}}</a>
+                    <a class="userText btn-link" ng-click='friendsArtist=!friendsArtist'>{{friend.name}}</a>
                       <ul>
                             <li ng-show='friendsArtist' ng-repeat='music in friend.music.data'>
-                                <a ng-href="#/artistSearched/" ng-click="findArtist(music.name)">{{music.name}}</a>
+                                <a class="btn-link" ng-href="#/artistSearched/" ng-click="findArtist(music.name)">{{music.name}}</a>
                             </li>
                        </ul>
                 </li>

@@ -22,10 +22,8 @@ voltaicLifeApp.controller('showView', ['$scope', '$rootScope', '$routeParams', f
         {
             $rootScope.user.shows = [];
         }
-        $scope.showList = [];
         
-        $scope.showList.push($scope.showInfo.showTitle);
-        $rootScope.user.shows.push($scope.showList);
+        $rootScope.user.shows.push($scope.showInfo.showTitle);
         $rootScope.user.$save('shows');
 
             // console.logging the object showInfo  to see if the information was stored

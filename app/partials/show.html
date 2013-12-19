@@ -16,12 +16,11 @@
 </div>    
 <div class="clearfix mySpacing"></div>
 <div ng-hide='buyTicket'>
-        <a ng-href="{{showInfo.ticketUrl}}">Buy a ticket</a>
+        <a class="btn btn-default btn-buyTicket" ng-href="{{showInfo.ticketUrl}}">Buy a ticket</a>
         <p><span class="clrChng">Ticket type: </span>{{ showInfo.ticketType }}</p>
         <p><span class="clrChng">On sale Date: </span>{{ showInfo.onSale }}</p>
 
-    <div>
-        <h4>How about we go to this show in a big group...</h4>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ showInfo.ticketUrl }}" target="_blank">Share on Facebook</a>
+    <div >
+        <a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u={{ showInfo.ticketUrl }}" target="_blank">Share on Facebook</a>
     </div>
 </div>

@@ -45,8 +45,8 @@
         <div class="container">
           <div class="navbar-header">
            <header class="navbar-left">
-            <h1><a class="navbar-brand visible-md visible-lg brandLogo" href="/">voltaicLife</a></h1>
-            <a class="visible-xs visible-sm"><img ng-src="img/voltaicLife-logo_48x48x32.png" /></a>
+            <h1><a class="navbar-brand visible-md visible-lg brandLogo" ng-href="/">voltaicLife</a></h1>
+            <a ng-href="/" class="visible-xs visible-sm"><img ng-src="img/voltaicLife-logo_48x48x32.png" /></a>
     		</header>
           </div>
           <div class="login navbar-right">
@@ -58,13 +58,14 @@
         </div>
       </div>
 
-      <!-- Begin page content -->
+    <div class="mySpacing"></div>
+      <!-- Begin page content -->    
       <div class="container searchbar" ng-controller= "search">
           <p class="lead center-block">Search to find where your favorite artist is playing</p>
           <form class="form-search form-inline col-lg-12">
               <div class="input-group"> 
                 <input type="text" placeholder="Search by artist..." ng-model="artist" class="form-control"/>
-                <span class="input-group-btn"><button ng-href='' type="submit" ng-click="findArtist(artist)" class="btn btn-default">Search</button></span>
+                <span class="input-group-btn"><button ng-href='' type="submit" ng-click="findArtist(artist)" class="btn btn-default searchBtn">Search</button></span>
                   </div>
           </form>
           <hr>
@@ -77,13 +78,11 @@
         
     </div><!-- End wrap -->
     
-    <div class="clearfix mySpacing"></div>
-    
-    <div id="footer">
+    <footer id="footer">
       <div class="container">
-        <p class="text-muted">voltaicLife &copy; Copyright 2013  by voltaicLife inc.</p>
+        <p class="text-muted credit footerInfo">voltaicLife &copy; Copyright 2013  by voltaicLife inc.</p>
       </div>
-    </div>
+    </footer>
     
 </body>
 </html>

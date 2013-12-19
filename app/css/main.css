@@ -1,3 +1,5 @@
+/*** GLOBALS  ***/
+
 html, body {
     font-family: 'Helvetica', sans-serif;
     height: 100%;
@@ -16,6 +18,8 @@ a:hover {
     text-decoration: none;
 }
 
+/*** Index ***/
+
 #wrap {
     min-height: 100%;
     height: auto;
@@ -27,6 +31,13 @@ a:hover {
     height: 60px;
     background-color: #f5f5f5;
 }
+
+.footerInfo {
+    margin-top: 20px;
+    color: #793787;
+}
+
+/*** Navbar ***/
 
 .navbar-default {
     background-color: #832fc8;
@@ -47,25 +58,43 @@ a:hover {
     color: ghostwhite;
 }
 
+/*** Searchbar ***/
+
 .searchbar {
-    z-index:auto;
+    z-index: 30px;
+}
+
+.searchBtn {
+    background-color: #7518C2;
+    color: ghostwhite;
+}
+
+.searchBtn:hover {
+    background-color: rgba(117, 24, 194, 0.7);
+    color: ghostwhite;
+}
+
+.searchBtn:active {
+    background-color: rgba(117, 24, 194, 0.9);
+    color: ghostwhite;
 }
 
 .mainView {
     margin-top: 50px;
 }
 
-.mainView .background {
-    background: #000 url('../img/homePic.jpg') no-repeat;
+.background {
+    background: url(../img/homePic.jpg) no-repeat;
+    height: 550px;
+    border-top: 4px solid #2A5EC8;
+    border-bottom: 4px solid #7518C2;
 }
 
 .mySpacing {
     margin-bottom: 50px;
 }
 
-.bdg-color {
-    background-color: #832fc8;
-}
+/*** User Page  ***/
 
 .userText {
     color: #2A5EC8;
@@ -88,6 +117,10 @@ a:hover {
     font-size: 22px;
 }
 
+.bdg-color {
+    background-color: #832fc8;
+}
+
 #frndSrch {
     margin-bottom: 25px;
 }
@@ -95,4 +128,20 @@ a:hover {
 .friendsList {
     font-size: 18px;
     color: #2A5EC8;
+}
+
+.btn-link:hover {
+    text-decoration: none !important;
+}
+
+/*** Show Page ***/
+
+.btn-buyTicket {
+    background-color: #8D208F;
+    color: rgba(42, 94, 200, 0.7);
+}
+
+.btn-buyTicket:hover {
+    background-color: rgba(141, 32, 143, 0.7);
+    color: rgba(42, 94, 200, 0.7);
 }
