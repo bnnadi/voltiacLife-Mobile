@@ -11,6 +11,7 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', '$r
     $scope.findArtist = function(artist){
        
         $scope.foundIt = artist;
+        $scope.searched = true;
 
          var API_URL = 'http://api.bandsintown.com/artists/' + artist + '/events.' + API_Format + '?api_version=' + APIv + '&app_id=' + APPID+ "&callback=JSON_CALLBACK";
         // using $http to  bring in the json data on the artist searched and saving it to $scope.data  
@@ -18,7 +19,11 @@ voltaicLifeApp.controller('search', ['$scope', '$http', '$log', '$location', '$r
             .success(function(data, status, headers, config){
                $scope.shows =  data; 
                 $log.info(data, status, headers(), config);
-               // console.log('hello',$scope.shows);
+               //console.log('hello',$scope.shows);
+                
+                if($scope.shows.length === 0){
+                    $scope.searched = false;
+                }
             })
             .error(function(data, status, headers, config){
                 $log.warn(data, status, headers(), config);

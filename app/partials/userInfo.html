@@ -4,7 +4,7 @@
             <img ng-src='{{user.imageLarge}}' height="125" width="125" class="img-circle img-responsive pull-left" />
             <span class="pull-right">
                 <h4>{{user.name}}</h4>
-                <p><a class="userText">liked artists <span class="badge bdg-color">{{likes.length}}</span></a></p>
+                <p><a  ng-href='#/under_construction'class="userText">liked artists <span class="badge bdg-color">{{likes.length}}</span></a></p>
             </span>
         </div>
         
@@ -14,18 +14,20 @@
     </div>
     
    <div class="clearfix center-block col-md-12">
-    <h2><a  ng-click="showFriends=false" class="userTitle btn-link">shows you looked at</a></h2>
+    <h2><a  ng-click="showFriends=false" class="userTitle btn-link">shows you looked at</a></h2> <span ng-show="showFriends"  class="badge bdg-color">{{likes.length}}</span>
      <div ng-hide="showFriends" >
-        <ul class="list-group">     
+        <ul class="list-group" ng-show='userShow'>     
             <li ng-repeat="show in user.shows" class="list-group-item col-md-6"><a class="userText">{{show}}</a></li>
         </ul>
+         
+        <p ng-hide='userShow'>Sorry you don't have shows right now, try searching for an artist above or through your friends likes!</p>
     </div>
        <div class="clearfix"></div>
         
-        <h2><a ng-click="showFriends=true" class="userTitle btn-link">friends</a></h2>
+        <h2><a ng-click="showFriends=true" class="userTitle btn-link">friends</a></h2> <span class="badge bdg-color" ng-hide="showFriends">{{user.friendsMusic.length}}</span>
         
         <div ng-show="showFriends">
-            <input id="frndSrch" class="form-control" ng-model='searchFriends' />
+            <input id="frndSrch" class="form-control" ng-model='searchFriends' placeholder="Search for your friends" />
             <ul class="list-group">
                 <li ng-repeat='friend in user.friendsMusic | filter:searchFriends' class="list-group-item col-md-4">
                     <span class="badge bdg-color">{{friend.music.data.length}}</span>

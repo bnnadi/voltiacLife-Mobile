@@ -1,13 +1,18 @@
 <div>
     <h3>Here are the concerts for  {{foundIt | uppercase }}</h3>
+    <div ng-show='searched'>
+        <ul class="list-group">
+            <li ng-repeat='(key,show) in shows' class="list-group-item">
+                <a ng-href="#/show/{{key}}"> 
+                    <h4 class="list-group-item-heading">{{show.formatted_location}} </h4>
+                    <p class="list-group-item-text">{{show.formatted_datetime}}</p>
+                    <p class="list-group-item-text">{{show.venue.name}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
     
-    <ul class="list-group">
-        <li ng-repeat='(key,show) in shows' class="list-group-item">
-            <a ng-href="#/show/{{key}}"> 
-                <h4 class="list-group-item-heading">{{show.formatted_location}} </h4>
-                <p class="list-group-item-text">{{show.formatted_datetime}}</p>
-                <p class="list-group-item-text">{{show.venue.name}}</p>
-            </a>
-        </li>
-    </ul>
+    <div ng-hide='searched'>
+        <p>Sorry we currently do not have any shows for this artist right now...</p>
+    </div>
 </div>

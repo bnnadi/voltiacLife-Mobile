@@ -59,7 +59,7 @@ voltaicLifeApp.run(['$firebaseAuth', '$rootScope', '$firebase', '$location', '$h
                     .success(function(data, status, headers, config){
                         $rootScope.friends = data.friends.data; 
                         $log.info(data, status, headers(), config);
-                        //console.log('hello friends likes! ',$rootScope.friends);
+                        console.log('hello friends likes! ',$rootScope.friends);
                             if(!$rootScope.user.friendsMusic){
                                 $rootScope.user.friendsMusic;
                                 $rootScope.user.friendsMusic = $rootScope.friends;
