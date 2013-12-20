@@ -49,13 +49,27 @@ a:hover {
     color: ghostwhite !important;
 }
 
+.logoBackground {
+    background-color: ghostwhite;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: -10px;
+}
+
 .login {
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .login ul span a {
     font-size: 18px;
     color: ghostwhite;
+}
+
+.FBLogin {
+    background-color: #3B5998 !important;
+    border-color: #3B5998;
 }
 
 /*** Searchbar ***/
@@ -86,6 +100,7 @@ a:hover {
 .background {
     background: url(../img/homePic.jpg) no-repeat;
     height: 550px;
+    max-width: auto;
     border-top: 4px solid #2A5EC8;
     border-bottom: 4px solid #7518C2;
 }
@@ -157,4 +172,31 @@ a:hover {
 
 .progress-bar-success {
     background-color: #832fc8 !important;
+}
+
+@media (max-width: 768px) {
+    .navbar-default {
+        height: inherit;
+    }
+    
+    .logoBackground {
+        width: 50px;
+        margin-left: 30px;
+    }
+
+    .FBLogin {
+        float: right;
+        margin-top: -55px;
+        margin-right: 40px;
+    }
+
+    .background {
+        background: url(../img/homePic.jpg) no-repeat;
+        height: 550px;
+        max-width: 90%;
+    }
+    
+    .searchbar {
+        margin-top: 300px;
+    }
 }
