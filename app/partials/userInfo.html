@@ -14,13 +14,13 @@
     </div>
     
    <div class="clearfix center-block col-md-12">
-    <h2><a  ng-click="showFriends=false" class="userTitle btn-link">shows you looked at</a></h2> <span ng-show="showFriends"  class="badge bdg-color">{{likes.length}}</span>
+    <h2><a  ng-click="showFriends=false" class="userTitle btn-link">shows you looked at</a></h2> <span ng-show="showFriends"  class="badge bdg-color">{{user.shows.length}}</span>
      <div ng-hide="showFriends" >
-        <ul class="list-group" ng-show='userShow'>     
+        <ul class="list-group" ng-hide='userShow'>     
             <li ng-repeat="show in user.shows" class="list-group-item col-md-6"><a class="userText">{{show}}</a></li>
         </ul>
          
-        <p ng-hide='userShow'>Sorry you don't have shows right now, try searching for an artist above or through your friends likes!</p>
+        <p ng-show='userShow'>Sorry you don't have shows right now, try searching for an artist above or through your friends likes!</p>
     </div>
        <div class="clearfix"></div>
         
